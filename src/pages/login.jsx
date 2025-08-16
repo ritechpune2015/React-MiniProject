@@ -13,24 +13,36 @@ export function Login()
       await login(email,password);
    }
     return(<>
-    <h2> Login </h2>
+       <div className="row">
+         <div className="offset-3 col-4">
+ <div className="card mt-5">
+     <div className="card-header">
+<h2> Login </h2>
+     </div>
+   <div className="card-body">
+ 
     <form onSubmit={handleSubmit}>
        <div>
         <label>Email ID</label>
        <div>
-            <input type="text" onChange={(e)=>setEmail(e.target.value)} />
+            <input className="form-control" type="text" onChange={(e)=>setEmail(e.target.value)} />
         </div>
        </div>
        <div>
         <label>Password</label>
         <div>
-            <input type="password"  onChange={(e)=>setPassword(e.target.value)}/>
+            <input className="form-control"  type="password"  onChange={(e)=>setPassword(e.target.value)}/>
         </div>
        </div>
-       <div>
-        <button> Login </button>
-        <Link to="/register"> Registration</Link>
+       <div className="mt-3">
+        <button className="btn btn-danger"> Login </button>
+        <br></br>
+        <Link to="/register"> New User Registration</Link>
        </div>
     </form>
+     </div>
+   </div>
+         </div>
+       </div>
     </>);
 }
