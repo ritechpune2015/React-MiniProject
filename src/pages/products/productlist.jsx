@@ -5,7 +5,7 @@ export function ProductList()
     const [products,setProducts]=useState([]);
     useEffect(()=>{
         api.get("/ProductAPI").then((response)=>{
-            alert("Success!");
+           // alert("Success!");
             setProducts(response.data);
         }).catch((err)=>alert(JSON.stringify(err)));
     },[]);

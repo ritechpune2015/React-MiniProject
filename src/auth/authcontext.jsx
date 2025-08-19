@@ -10,14 +10,14 @@ export const AuthProvider=({children})=>{
  const login=async(email,password)=>{
       
     await api.post("/Accounts/Login",{emailID:email,password:password}).then((res)=>{
-    //     console.log(res);
+         console.log(res);
       if(res.data.isLoggedIn)
       {
         sessionStorage.setItem("userName",res.data.fullName);
         sessionStorage.setItem("token",res.data.token);
         setUserName(res.data.fullName);
         setToken(res.data.token);
-        alert("Logged In");
+       // alert("Logged In");
         navigate("/dashboard");
       }
       else
@@ -25,6 +25,7 @@ export const AuthProvider=({children})=>{
         alert("Invalid EmailID or Password!")
       }
       }).catch(err=>{
+        alert(JSON.stringify(err));
         if(err.response.status==401)
         {
             alert("Invalid Email ID or Password!");
